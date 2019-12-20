@@ -1,0 +1,12 @@
+apply plugin: 'java-library'
+
+Project processor
+try { processor = project(":processor") } catch (Exception e) { processor = project(":network:processor") }
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    annotationProcessor processor
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
